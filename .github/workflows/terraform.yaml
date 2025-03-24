@@ -16,7 +16,7 @@ on:
       region:
         description: "AWS Region"
         required: true
-        default: "us-east-2"
+        default: "us-west-2"
       action:
         description: "Terraform action to perform: apply or destroy"
         required: false
@@ -34,7 +34,7 @@ jobs:
     timeout-minutes: 120
     env:
       TF_ENV: ${{ github.event.inputs.environment || 'prod' }}
-      AWS_REGION: ${{ github.event.inputs.region || 'us-east-2' }}
+      AWS_REGION: ${{ github.event.inputs.region || 'us-west-2' }}
       TF_WORKING_DIR: ./${{ github.event.inputs.environment || 'prod' }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
